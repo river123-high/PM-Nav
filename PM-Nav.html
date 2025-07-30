@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PM-Nav: Prior-Map Guided Instruction Navigation in Public Buildings</title>
+  <style>
+    p {
+  text-align: justify;
+    }
+
+    /* Reset & base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Georgia', serif; color: #333; line-height: 1.6; }
+    a { color: #0366d6; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Headings */
+    h1 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2.5em; text-align: center; margin-bottom: 10px; }
+    /* Section titles */
+    section h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.8em; text-align: center; margin-bottom: 20px; }
+
+    /* Layout */
+    .container { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+    header, footer { text-align: center; margin-bottom: 40px; }
+    .authors { font-size: 0.95em; color: #b33; margin-top: 8px; }
+    .authors a { margin: 0 6px; color: #b33; text-decoration: none; }
+    .authors a:hover { text-decoration: underline; }
+
+    /* Buttons */
+    .btn-group { text-align: center; margin: 20px 0; }
+    .btn-group a { display: inline-block; margin: 0 8px; padding: 8px 16px; background: #0366d6; color: #fff; border-radius: 4px; font-size: 0.9em; }
+    .btn-group a:hover { background: #024ea2; }
+
+    /* Sections */
+    section { margin-bottom: 60px; }
+    #abstract p, #overview p { font-size: 1.1em; }
+
+    /* Figure styling */
+    .figure { text-align: center; margin: 30px 0; }
+    .figure img, .figure iframe { max-width: 100%; height: auto; border: 1px solid #ddd; padding: 4px; }
+    .figure iframe { border: none; padding: 0; }
+    .figure figcaption { font-size: 0.9em; color: #666; margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>PM-Nav: Prior-Map Guided Instruction Navigation in Public Buildings</h1>
+<!--      <div class="authors">-->
+<!--        <a href="https://gaojiang666.github.io/" target="_blank">Jiang Gao</a><sup>1</sup> · <a  target="_blank">Xiangyu Dong</a><sup>1</sup> · <a href="https://yourhomepage.example.com" target="_blank">Haozhou Li</a><sup>2</sup> · <a href="https://yourhomepage.example.com" target="_blank">Haoran Zhao</a><sup>2</sup> · <a href="https://yourhomepage.example.com" target="_blank">Yaoming Zhou</a><sup>2</sup> · <a href="http://www.rse.neu.edu.cn/2025/0523/c2275a286233/page.htm" target="_blank">Xiaoguang Ma</a><sup>2</sup><br>-->
+<!--        <small><sup>1</sup>Northeastern University</small>-->
+<!--      </div>-->
+    </header>
+
+    <section id="links" class="btn-group">
+<!--      <a href="https://gaojiang666.github.io/" target="_blank">Paper</a>-->
+      <a href="https://github.com/river123-high/PM-Nav_Datasets" target="_blank">Dataset</a>
+    </section>
+
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <p>Existing language-driven embodied navigation paradigms have significant limitations, as they fail to fully leverage prior spatial cues in the real world, particularly floor plans and indicative landmark information in public building scenarios. To address this critical issue, this paper proposes a novel embodied navigation task — Prior-map guided Instruction Navigation (PIN). In recent years, large foundation models have achieved breakthroughs in the fields of instruction understanding and cross-modal reasoning, providing a highly promising technical path for solving the PIN task. Based on this, this paper further proposes the PM-Nav framework to effectively solve this task. The core design of the framework includes two aspects: first, endowing the agent with map understanding capabilities, relying on the logical reasoning advantages of Vision-Language Models (VLMs) to generate first-person navigation plans; second, constructing a multi-model collaborative action output mechanism to bridge the cognitive gap between robots and humans in terms of environmental perception. Experimental data show that PM-Nav achieves a success rate of over 80\% in simple tasks and breaks through 40\% in complex tasks; moreover, in the dual-scenario verification of both simulated and real environments, it demonstrates more effective navigation strategies than traditional methods. To the best of our knowledge, this study is the first framework that combines prior maps with Large Language Models (LLMs) and applies them to instruction-driven navigation in large public buildings, filling the research gap in this underexplored field.</p>
+    </section>
+
+    <section id="overview">
+      <h2>Overview</h2>
+      <div class="figure">
+        <figure>
+          <img src="fig_overview.png" alt="PM-VLN Overview">
+        </figure>
+      </div>
+      <p>For public building scenarios, this paper proposes a navigation strategy based on prior maps. The execution process of this strategy is as follows: First, the agent generates a navigation-friendly semantic prior map by parsing the environmental map; second, combined with the hierarchical chain-of-thought prompts and the annotated prior map, a global navigation plan is generated; finally, navigation operations are carried out according to the plan, and the targets to be detected are searched through a multi-model collaborative action output mechanism.</p>
+    </section>
+
+    <section id="video">
+      <h2>Presentation Video</h2>
+      <div class="figure">
+        <iframe src="https://www.youtube.com/embed/9PDZwFm-0S4" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </section>
+
+
+<!--    <footer>-->
+<!--      <p>&copy; 2025 Gao Jiang et al.</p>-->
+<!--    </footer>-->
+  </div>
+</body>
+</html>
