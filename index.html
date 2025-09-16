@@ -67,7 +67,7 @@
       <h2>Overview</h2>
       <div class="figure">
         <figure>
-          <img src="fig_overview.png" alt="PM-VLN Overview">
+          <img src="overview.png" alt="PM-VLN Overview">
         </figure>
       </div>
       <p>Firstly, a priori environment map is parsed into a semantic priori one that encodes associative relationships between paths and rooms. Secondly, a hierarchical chain-of-thought prompting (H-CoT prompt) template is combined with the annotated priori-map and provided to a VLM to generate the path plannings that guide subsequent exploration, and the target is identified based on the Nav Executor. Finally, a panoramic image of the current environment is captured and input to the VLM to generate coarse-grained actions. Subsequently, GroundingDINO and SAM work in collaboration to mark the target landmark. The coarse-grained action information, combined with the marked landmark, is then fed into the Pixel Navigation Neural Network to generate fine-grained actions. If the target is successfully detected, the system proceeds to detect the next landmark. Otherwise, it continues to locate old landmark.</p>
