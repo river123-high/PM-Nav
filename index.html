@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PM-Nav: Prior-Map Guided Instruction Navigation in Public Buildings</title>
+  <title>PM-Nav: Priori-Map Guided Embodied Navigation in Functional Buildings</title>
   <style>
     p {
   text-align: justify;
@@ -48,7 +48,7 @@
     <header>
       <h1>PM-Nav: Prior-Map Guided Instruction Navigation in Public Buildings</h1>
 <!--      <div class="authors">-->
-<!--        <a href="https://gaojiang666.github.io/" target="_blank">Jiang Gao</a><sup>1</sup> · <a  target="_blank">Xiangyu Dong</a><sup>1</sup> · <a href="https://yourhomepage.example.com" target="_blank">Haozhou Li</a><sup>2</sup> · <a href="https://yourhomepage.example.com" target="_blank">Haoran Zhao</a><sup>2</sup> · <a href="https://yourhomepage.example.com" target="_blank">Yaoming Zhou</a><sup>2</sup> · <a href="http://www.rse.neu.edu.cn/2025/0523/c2275a286233/page.htm" target="_blank">Xiaoguang Ma</a><sup>2</sup><br>-->
+<!--        <a href="https://gaojiang666.github.io/" target="_blank">Jiang Gao</a><sup>1</sup> ? <a  target="_blank">Xiangyu Dong</a><sup>1</sup> ? <a href="https://yourhomepage.example.com" target="_blank">Haozhou Li</a><sup>2</sup> ? <a href="https://yourhomepage.example.com" target="_blank">Haoran Zhao</a><sup>2</sup> ? <a href="https://yourhomepage.example.com" target="_blank">Yaoming Zhou</a><sup>2</sup> ? <a href="http://www.rse.neu.edu.cn/2025/0523/c2275a286233/page.htm" target="_blank">Xiaoguang Ma</a><sup>2</sup><br>-->
 <!--        <small><sup>1</sup>Northeastern University</small>-->
 <!--      </div>-->
     </header>
@@ -60,7 +60,7 @@
 
     <section id="abstract">
       <h2>Abstract</h2>
-      <p>Existing language-driven embodied navigation paradigms have significant limitations, as they fail to fully leverage prior spatial cues in the real world, particularly floor plans and indicative landmark information in public building scenarios. To address this critical issue, this paper proposes a novel embodied navigation task — Prior-map guided Instruction Navigation (PIN). In recent years, large foundation models have achieved breakthroughs in the fields of instruction understanding and cross-modal reasoning, providing a highly promising technical path for solving the PIN task. Based on this, this paper further proposes the PM-Nav framework to effectively solve this task. The core design of the framework includes two aspects: first, endowing the agent with map understanding capabilities, relying on the logical reasoning advantages of Vision-Language Models (VLMs) to generate first-person navigation plans; second, constructing a multi-model collaborative action output mechanism to bridge the cognitive gap between robots and humans in terms of environmental perception. Experimental data show that PM-Nav achieves a success rate of over 80\% in simple tasks and breaks through 40\% in complex tasks; moreover, in the dual-scenario verification of both simulated and real environments, it demonstrates more effective navigation strategies than traditional methods. To the best of our knowledge, this study is the first framework that combines prior maps with Large Language Models (LLMs) and applies them to instruction-driven navigation in large public buildings, filling the research gap in this underexplored field.</p>
+      <p>Existing language-driven embodied navigation paradigms face challenges in functional buildings (FBs) with highly similar features, as they lack the ability to effectively utilize priori spatial knowledge. To tackle this issue, we propose a Priori-Map Guided Embodied Navigation (PM-Nav), wherein environmental maps are transformed into navigation-friendly semantic priori-maps, a hierarchical chain-of-thought prompt template with an annotation priori-map is designed to enable precise path planning, and a multi-model collaborative action output mechanism is built to accomplish positioning decisions and execution control for navigation planning. Comprehensive tests using a home-made FB dataset show that the PM-Nav obtains average improvements of 511% and 1175%, and 650% and 400% over the SG-Nav and the InstructNav in simulation and real-world, respectively. These tremendous boosts elucidate the great potential of using the PM-Nav as a backbone navigation framework for FBs.</p>
     </section>
 
     <section id="overview">
@@ -70,7 +70,7 @@
           <img src="fig_overview.png" alt="PM-VLN Overview">
         </figure>
       </div>
-      <p>For public building scenarios, this paper proposes a navigation strategy based on prior maps. The execution process of this strategy is as follows: First, the agent generates a navigation-friendly semantic prior map by parsing the environmental map; second, combined with the hierarchical chain-of-thought prompts and the annotated prior map, a global navigation plan is generated; finally, navigation operations are carried out according to the plan, and the targets to be detected are searched through a multi-model collaborative action output mechanism.</p>
+      <p>Firstly, a priori environment map is parsed into a semantic priori one that encodes associative relationships between paths and rooms. Secondly, a hierarchical chain-of-thought prompting (H-CoT prompt) template is combined with the annotated priori-map and provided to a VLM to generate the path plannings that guide subsequent exploration, and the target is identified based on the Nav Executor. Finally, a panoramic image of the current environment is captured and input to the VLM to generate coarse-grained actions. Subsequently, GroundingDINO and SAM work in collaboration to mark the target landmark. The coarse-grained action information, combined with the marked landmark, is then fed into the Pixel Navigation Neural Network to generate fine-grained actions. If the target is successfully detected, the system proceeds to detect the next landmark. Otherwise, it continues to locate old landmark.</p>
     </section>
 
     <section id="video">
